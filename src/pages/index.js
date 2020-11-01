@@ -1,5 +1,13 @@
 import React from "react"
+import GlobalStyle  from '../theme/GlobalStyles';
 
 export default function Home() {
-  return <div>Hello world!</div>
+  return (
+    <>
+      <GlobalStyle />
+      <div>Hello world!</div>
+
+    </>
+  
+    )
 }
