@@ -8,11 +8,17 @@ const Wrapper = styled.div`
     flex-wrap: nowrap;
     margin: auto 21px;
     padding: 10px;
+    width: 40%;
+
+    h3 {
+        text-align: center;
+    }
 `;
 
 const ImageDiv = styled.div`
+    /* width: ${({ theme }) => theme.BannerImageDiv.widthMobile}; */
     width: 100%;
-    height: 160px;
+    height: ${({ theme }) => theme.BannerImageDiv.heightMobile};
     background-image: url(${props => props.bcgImg});
     background-origin: content-box;
     background-position: center;
@@ -22,11 +28,17 @@ const ImageDiv = styled.div`
         max-width: 100%;
         max-height: 100%;
     }
+
+    @media(min-width: 768px){
+        width: ${({ theme }) => theme.BannerImageDiv.widthTablet};
+        height: ${({ theme }) => theme.BannerImageDiv.heightTablet};
+    }
 `;
 
 const LinkRead = styled(Link)`
     text-decoration:underline;
     font-size: 14px;
+    text-align: center;
 `;
 
 

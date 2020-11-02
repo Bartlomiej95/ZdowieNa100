@@ -1,5 +1,27 @@
 export const theme = {
 
+    MainSubHeading: {
+        marginTop: {
+            tablet: '35px',
+        },
+
+        marginBottom: {
+            mobile: '10px',
+            tablet: '55px',
+        },
+
+        fontSize: {
+            mobile: '12px',
+            tablet: '24px',
+        }
+    },
+    BannerImageDiv: {
+         widthMobile: '150px',
+         heightMobile: '160px',
+         widthTablet: '310px',
+         heightTablet: '270px',
+    },
+    
    fontSize: {
        h1: {
            mobile: '35px'
@@ -7,6 +29,7 @@ export const theme = {
 
        h2: {
            mobile: '12px',
+           tablet: '24px',
            sectionHeadingMobile: '28px',
         
         },
@@ -23,6 +46,7 @@ export const theme = {
             mobile: '12px',
         }
    },
+
 
    size: {
         label: {

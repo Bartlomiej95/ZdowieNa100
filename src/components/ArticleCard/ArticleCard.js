@@ -24,6 +24,10 @@ const DivImg = styled.div`
     background-origin: content-box;
     background-repeat: no-repeat;
     background-position: center;
+
+    @media(min-width: 768px){
+        height: 380px;
+    }
 `;
 
 const WrapperLabel = styled.div`

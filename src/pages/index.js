@@ -23,9 +23,14 @@ const HeadSectionWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px 0;
 
   img {
     flex: 2;
+
+    @media(min-width: 768px) {
+      display: none;
+    }
   }
 
   div {
@@ -44,11 +49,25 @@ const BannerSectionWrapper = styled.div`
 
 const MainSubHeadingDiv = styled.div`
   width: 100%;
-  margin-top: 10px;
 `;
 
 const SectionAside = styled.aside`
   text-align: center;
+  margin-bottom: 20px;
+  
+  img {
+    margin: 10px 0;
+  }
+
+  @media(min-width: 768px){
+    width: 50%;
+    margin: 0 auto;
+
+    img{
+      margin: 20px 0 10px 0;
+    }
+
+  }
 
 `;
 
@@ -67,7 +86,7 @@ export default function Home() {
           <div> 
             <MainHeading>ZdrowieNa100%</MainHeading>
           </div>
-          
+          <Navbar />
         </HeadSectionWrapper>
         <BannerSectionWrapper>
           <MainSubHeadingDiv>

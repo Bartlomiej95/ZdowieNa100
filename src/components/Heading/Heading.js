@@ -8,7 +8,13 @@ export const MainSubHeading = styled.h2`
     font-size: ${({ theme }) => theme.fontSize.h2.mobile};
     color: ${({ theme }) => theme.color.h2};
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: ${({ theme }) => theme.MainSubHeading.marginBottom.mobile};
+
+    @media(min-width: 768px){
+        font-size: ${({ theme }) => theme.fontSize.h2.tablet};
+        margin-top: ${({ theme }) => theme.MainSubHeading.marginTop.tablet};
+        margin-bottom: ${({ theme }) => theme.MainSubHeading.marginBottom.tablet};
+    }
 `;
 
 export const SectionHeading = styled.h2`
