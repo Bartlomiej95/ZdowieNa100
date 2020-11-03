@@ -6,13 +6,27 @@ import ReadButton from '../Buttons/Buttons';
 const Wrapper = styled.div`
     position: relative;
     margin-bottom: 100px;
+    
     /* width: 90vw; */
     
-    margin: auto 21px auto 21px;
 
-    img{
-        width: 100%;
-        max-height: 200px;
+    @media(min-width: 1280px){
+        display: flex;
+        flex-direction: row;
+        height: 500px;
+        padding-right: 5px;
+    }
+`;
+
+const ContentWrapper = styled.div`
+    @media(min-width: 1280px){
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: left;
+
+        margin: 10px 10px 5px 10px;
     }
 `;
 
@@ -27,6 +41,11 @@ const DivImg = styled.div`
 
     @media(min-width: 768px){
         height: 380px;
+    }
+
+    @media(min-width: 1280px){
+        flex:1;
+        height: 100%;
     }
 `;
 
@@ -48,7 +67,16 @@ const WrapperLabel = styled.div`
         color: white;
         margin: 0 auto;
         text-align: center;
-        line-height: 30px;
+        line-height: ${({ theme }) => theme.size.label.heightMobile};
+    }
+
+    @media(min-width: 780px) {
+        width: ${({ theme }) => theme.WrapperLabel.widthTablet};
+        height: ${({ theme }) => theme.WrapperLabel.heightTablet};
+
+        label {
+            line-height:${({ theme }) => theme.WrapperLabel.heightTablet};
+        }
     }
 `;
 
@@ -57,6 +85,11 @@ const TitleArticle = styled.h2`
     text-align: center;
     text-transform: bold;
     margin-top: 10px;
+
+    @media(min-width: 1280px) {
+        text-align: left;
+        font-size: ${({ theme }) => theme.TitleArticle.fontSize.laptop}
+    }
 `;
 
 
@@ -65,16 +98,21 @@ const ArticleCard = ({ image, title }) => {
     return(
         <>
             <Wrapper>
-                <DivImg image={image}></DivImg>
-                <WrapperLabel>
+                <DivImg image={image}>
+                    <WrapperLabel>
                     <label>Nazwa_kat</label>
-                </WrapperLabel>
-                <TitleArticle>{title}</TitleArticle>
-                <Paragraph>To jest przykładowa strona. Strony są inne niż wpisy na blogu, ponieważ nie tylko znajdują się zawsze 
+                    </WrapperLabel>
+                </DivImg>
+                
+                <ContentWrapper>
+                    <TitleArticle>{title}</TitleArticle>
+                    <Paragraph>To jest przykładowa strona. Strony są inne niż wpisy na blogu, ponieważ nie tylko znajdują się zawsze 
                     w jednym miejscu, ale także pojawiają się w menu witryny (w większości motywów). 
                     Większość użytkowników umieszcza na swoich witrynach stronę z informacjami o sobie, dzięki którym przedstawiają się
                     odwiedzającym ich witrynę.</Paragraph>
-                <ReadButton><h2>Czytaj teraz</h2> </ReadButton>
+                    <ReadButton><h2>Czytaj teraz</h2> </ReadButton>
+                </ContentWrapper>
+               
 
             </Wrapper>
         </>

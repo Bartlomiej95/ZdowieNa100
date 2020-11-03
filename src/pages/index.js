@@ -37,6 +37,10 @@ const HeadSectionWrapper = styled.div`
     flex: 10;
     text-align:center;
   }
+
+  @media(min-width: 1280px){
+    flex-direction: column;
+  }
 `;
 
 const BannerSectionWrapper = styled.div`
@@ -45,10 +49,28 @@ const BannerSectionWrapper = styled.div`
   align-items:center;
   flex-wrap: wrap;
 
+  @media(min-width: 1280px){
+    margin-top: 150px;
+  }
+
 `;
 
 const MainSubHeadingDiv = styled.div`
   width: 100%;
+
+  @media(min-width: 1280px){
+    display: none;
+  }
+`;
+
+const MainSectionWrapper = styled.main`
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto 40px auto;
+
+  @media(min-width: 1280px){
+    flex-direction: row;
+  }
 `;
 
 const SectionAside = styled.aside`
@@ -66,14 +88,31 @@ const SectionAside = styled.aside`
     img{
       margin: 20px 0 10px 0;
     }
+  }
 
+  @media(min-width: 1280px){
+    width: 25%;
+    margin: 0 auto;
+    border-left: 1px #707070 solid; 
   }
 
 `;
 
+const ArticleWrapper = styled.div`
+  width: 100%;
+
+  @media(min-width: 1280px){
+    width: 75%;
+  }
+`;
+
 const AboutAuthor = styled.div`
 
+  img {
+    margin-top: 50px;
+  }
 `;
+
 
 
 export default function Home() {
@@ -85,6 +124,7 @@ export default function Home() {
           <img src={menuIcon} alt="menu icon"></img>
           <div> 
             <MainHeading>ZdrowieNa100%</MainHeading>
+            <MainSubHeading className={'inTheOtherPlace'}>Blog poświęcony zdrowemu stylowi życia</MainSubHeading>
           </div>
           <Navbar />
         </HeadSectionWrapper>
@@ -96,17 +136,20 @@ export default function Home() {
           <BannerCard image={biegImg}/>
           <BannerCard image={medytacjaImg}/>
         </BannerSectionWrapper>
-        <SectionHeading>Aktualności</SectionHeading>
-        <ArticleCard image={owsiankaImg} title={'Śniadanie najlepszym kopniakiem do dalszej części dnia !'} />
-        <ArticleCard image={owsiankaImg} title={'Śniadanie najlepszym kopniakiem do dalszej części dnia !'} />
-        <SectionAside>
-          <AboutAuthor>
-              <h2>O Autorze</h2>
-              <img src={authorImg} alt="author image" />
-              <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Paragraph>
-          </AboutAuthor>
-        </SectionAside>
-
+        <MainSectionWrapper>
+          <ArticleWrapper>
+            <SectionHeading>Aktualności</SectionHeading>
+            <ArticleCard image={owsiankaImg} title={'Śniadanie najlepszym kopniakiem do dalszej części dnia !'} />
+            <ArticleCard image={owsiankaImg} title={'Śniadanie najlepszym kopniakiem do dalszej części dnia !'} />
+          </ArticleWrapper>
+          <SectionAside>
+            <AboutAuthor>
+                <h2>O Autorze</h2>
+                <img src={authorImg} alt="author image" />
+                <Paragraph className={"aboutAuthor"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Paragraph>
+            </AboutAuthor>
+          </SectionAside>
+        </MainSectionWrapper>
       </ThemeProvider>
     </>
   

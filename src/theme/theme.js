@@ -1,5 +1,14 @@
 export const theme = {
 
+    MainHeading: {
+        fontSize: {
+            mobile: '35px',
+            tablet: '35px',
+            laptop: '68px',
+            desktop: '82px',
+        }
+    },
+
     MainSubHeading: {
         marginTop: {
             tablet: '35px',
@@ -20,6 +29,35 @@ export const theme = {
          heightMobile: '160px',
          widthTablet: '310px',
          heightTablet: '270px',
+         widthLaptop: '350px',
+         heightLaptop: '400px',
+    },
+
+    WrapperLabel: {
+        widthMobile: '150px',
+        heightMobile: '160px',
+        widthTablet: '150px',
+        heightTablet: '40px',
+        widthLaptop: '150px',
+        heightLaptop: '55px',
+    },
+
+    TitleArticle: {
+        fontSize: {
+            mobile: '20px',
+            tablet: '20px',
+            laptop: '27px',
+            desktop:'32px',
+        }
+    },
+
+    Paragraph: {
+        fontSize: {
+            mobile: '12px',
+            tablet: '12px',
+            laptop: '27px',
+            desktop: '32px',
+        }
     },
     
    fontSize: {

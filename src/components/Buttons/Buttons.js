@@ -18,6 +18,13 @@ const ReadButton = styled.button`
         color: white;
 
     }
+
+    @media(min-width:1280px){
+        margin: 0 0 10px 20px;
+        display: block;
+        align-self: start;
+        justify-self: end;
+    }
 `;
 
 export default ReadButton;

@@ -13,6 +13,15 @@ const Wrapper = styled.div`
     h3 {
         text-align: center;
     }
+
+    @media(min-width: 1280px){
+        width: 30%;
+
+        h3{
+            font-size: 26px;
+            margin: 10px 0;
+        }
+    }
 `;
 
 const ImageDiv = styled.div`
@@ -23,6 +32,8 @@ const ImageDiv = styled.div`
     background-origin: content-box;
     background-position: center;
     background-size: cover;
+    align-self: center;
+    align-content:center;
 
     img{
         max-width: 100%;
@@ -30,8 +41,13 @@ const ImageDiv = styled.div`
     }
 
     @media(min-width: 768px){
-        width: ${({ theme }) => theme.BannerImageDiv.widthTablet};
+        width: 100%;
         height: ${({ theme }) => theme.BannerImageDiv.heightTablet};
+    }
+
+    @media(min-width: 1280px){
+        width: 100%;
+        height: ${({ theme }) => theme.BannerImageDiv.heightLaptop};
     }
 `;
 

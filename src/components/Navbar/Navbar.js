@@ -18,6 +18,28 @@ const NavbarWrapper = styled.nav`
             font-weight: normal;
             padding: 10px 0;
 
+            :last-child{
+                margin-right: 13px;
+            }
+
+        }
+
+    }
+
+    @media(min-width: 1280px){
+        display: flex;
+        margin-right: 21px;
+        border-top: 1px rgba(112, 112, 112, .5) solid;
+        border-bottom: 1px rgba(112, 112, 112, .5) solid;
+
+        h2{
+            font-size: 38px;
+            margin-left: 50px;
+            padding: 15px 0;
+
+            :last-child{
+                margin-right: 50px;
+            }
         }
     }
 
