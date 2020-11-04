@@ -88,7 +88,8 @@ const TitleArticle = styled.h2`
 
     @media(min-width: 1280px) {
         text-align: left;
-        font-size: ${({ theme }) => theme.TitleArticle.fontSize.laptop}
+        font-size: ${({ theme }) => theme.TitleArticle.fontSize.laptop};
+        margin-left: 10px;
     }
 `;
 
