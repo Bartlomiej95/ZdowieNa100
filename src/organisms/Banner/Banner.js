@@ -26,8 +26,10 @@ const MainSubHeadingDiv = styled.div`
   }
 `;
 
-const Banner = () => {
-    return(
+const Banner = (props) => {
+   
+    {console.log(props)}
+  return(
         <BannerSectionWrapper>
             <MainSubHeadingDiv>
                 <MainSubHeading>Blog poświęcony zdrowemu stylowi życia</MainSubHeading>
