@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Paragraph from '../Paragaph/Paragraph';
-import ReadButton from '../Buttons/Buttons';
+import Paragraph from '../../components/Paragaph/Paragraph';
+import ReadButton from '../../components/Buttons/Buttons';
 
 const Wrapper = styled.div`
     position: relative;
