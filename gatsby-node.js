@@ -10,36 +10,25 @@ exports.createPages = async ({ graphql, actions}) => {
           nodes {
             title
             label
+            content {
+              ... on DatoCmsContentImage {
+                image {
+                  url
+                }
+              }
+              ... on DatoCmsContentHeading {
+                heading
+              }
+              ... on DatoCmsContentParagraph {
+                paragraph
+              }
+            }
+            
           }
         }
       }
     
     `);
-
-    // const nutritionResult = await graphql(`
-    // query queryNutritionArticle {
-    //     allDatoCmsArticle(filter: {label: {in: "Odżywianie"}}) {
-    //       nodes {
-    //         title
-    //         paragraph
-    //         label
-    //         content {
-    //           ... on DatoCmsContentImage {
-    //             image {
-    //               url
-    //             }
-    //           }
-    //           ... on DatoCmsContentHeading {
-    //             heading
-    //           }
-    //           ... on DatoCmsContentParagraph {
-    //             paragraph
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // `);
 
     result.data.allDatoCmsArticle.nodes.forEach( post => {
 
@@ -55,12 +44,12 @@ exports.createPages = async ({ graphql, actions}) => {
             path: `${labelNameAfterGenerate}/${slugifiedTitle}`,
             component: articlePostTemplate,
             context: {
-              slug: slugifiedTitle,
+              post
             }
            
-        })
+        });
     })
-
+    
 }
 
 const labelNameGenerate = (label) => {

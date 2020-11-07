@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import owoceImg from '../../../static/assets/owoce.jpg';
-import biegImg from '../../../static/assets/bieg.jpg';
-import medytacjaImg from '../../../static/assets/medytacja.jpg';
+import { useStaticQuery, graphql } from "gatsby";
 import BannerCard from '../../molecules/BannerCard/BannerCard';
 import { MainSubHeading } from '../../components/Heading/Heading';
 
@@ -26,17 +24,34 @@ const MainSubHeadingDiv = styled.div`
   }
 `;
 
-const Banner = (props) => {
-   
-    {console.log(props)}
+export const query = graphql`
+query bannerArticle {
+  allDatoCmsArticle(limit: 3) {
+    nodes {
+      title
+      label
+      image {
+        url
+      }
+    }
+  }
+}`;
+
+const Banner = () => {
+
+  const data = useStaticQuery(query);
+  console.log(data.allDatoCmsArticle.nodes)
+  
   return(
         <BannerSectionWrapper>
             <MainSubHeadingDiv>
                 <MainSubHeading>Blog poświęcony zdrowemu stylowi życia</MainSubHeading>
             </MainSubHeadingDiv>
-            <BannerCard image={owoceImg}/>
-            <BannerCard image={biegImg}/>
-            <BannerCard image={medytacjaImg}/>
+            {
+              data.allDatoCmsArticle.nodes.map(node => 
+                <BannerCard key={node.title} image={node.image.url} label={node.label} title={node.title} />  
+              )
+            }
         </BannerSectionWrapper>
     )
 }

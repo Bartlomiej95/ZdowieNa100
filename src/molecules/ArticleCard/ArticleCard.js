@@ -6,6 +6,7 @@ import ReadButton from '../../components/Buttons/Buttons';
 const Wrapper = styled.div`
     position: relative;
     margin-bottom: 100px;
+    padding-left: 20px;
     
     /* width: 90vw; */
     
@@ -94,23 +95,22 @@ const TitleArticle = styled.h2`
 `;
 
 
-const ArticleCard = ({ image, title }) => {
+
+
+const ArticleCard = ({ image, label, title, paragraph }) => {
 
     return(
         <>
             <Wrapper>
                 <DivImg image={image}>
                     <WrapperLabel>
-                    <label>Nazwa_kat</label>
+                    <label>{label}</label>
                     </WrapperLabel>
                 </DivImg>
                 
                 <ContentWrapper>
                     <TitleArticle>{title}</TitleArticle>
-                    <Paragraph>To jest przykładowa strona. Strony są inne niż wpisy na blogu, ponieważ nie tylko znajdują się zawsze 
-                    w jednym miejscu, ale także pojawiają się w menu witryny (w większości motywów). 
-                    Większość użytkowników umieszcza na swoich witrynach stronę z informacjami o sobie, dzięki którym przedstawiają się
-                    odwiedzającym ich witrynę.</Paragraph>
+                    <Paragraph>{paragraph}</Paragraph>
                     <ReadButton><h2>Czytaj teraz</h2> </ReadButton>
                 </ContentWrapper>
                

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useStaticQuery, graphql } from "gatsby";
 import ArticleCard from '../../molecules/ArticleCard/ArticleCard';
 import Paragraph from '../../components/Paragaph/Paragraph';
-import owsiankaImg from '../../../static/assets/owsianka.jpg';
 import authorImg from '../../../static/assets/author.svg';
 import { SectionHeading } from '../../components/Heading/Heading';
 
@@ -57,18 +57,47 @@ const AboutAuthor = styled.div`
 `;
 
 
-const MainSection = () => {
+export const query = graphql`
+query MyQuery{
+  allDatoCmsArticle {
+    nodes {
+      title
+      paragraph
+      label
+      image {
+        url
+      }
+    }
+  }
+}
+
+`;
+
+const MainSection = ({ category }) => {
+
+  const data = useStaticQuery(query)
+  
+  //wybieramy artykuły z konkretnego działu tzn. np. dla działu odżywianie 
+  const filteredData = data.allDatoCmsArticle.nodes.filter(node => node.label === category);  
+
     return(
         <>
             <MainSectionWrapper>
             <ArticleWrapper>
                 <SectionHeading>Aktualności</SectionHeading>
-                <ArticleCard image={owsiankaImg} title={'Śniadanie najlepszym kopniakiem do dalszej części dnia !'} />
-                <ArticleCard image={owsiankaImg} title={'Śniadanie najlepszym kopniakiem do dalszej części dnia !'} />
+                {
+                  // sprawdzamy czy przekazaliśmy zmienną category - w przypadku braku przekazania tej zmiennej będzie oznaczać, że
+                  // jesteśmy na stronie głównej, więc nie chcemy podziału na kategorie - chcemy wyświetlać wszystko
+                  category ? ( filteredData.map(node => 
+                    <ArticleCard title={node.title} label={node.label} paragraph={node.paragraph} image={node.image.url} />
+                  )) : ( data.allDatoCmsArticle.nodes.map(node => 
+                    <ArticleCard title={node.title} label={node.label} paragraph={node.paragraph} image={node.image.url} />
+                  ))
+                } 
             </ArticleWrapper>
             <SectionAside>
                 <AboutAuthor>
-                    <h2>O Autorze</h2>
+                    <h2>O autorze</h2>
                     <img src={authorImg} alt="author image" />
                     <Paragraph className={"aboutAuthor"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Paragraph>
                 </AboutAuthor>

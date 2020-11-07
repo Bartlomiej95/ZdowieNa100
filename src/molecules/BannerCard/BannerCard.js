@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import Paragraph from '../../components/Paragaph/Paragraph';
 
 const Wrapper = styled.div`
     display: flex;
@@ -17,12 +18,13 @@ const Wrapper = styled.div`
     @media(min-width: 1280px){
         width: 30%;
 
-        h3{
+        h3 {
             font-size: 26px;
             margin: 10px 0;
         }
     }
 `;
+
 
 const ImageDiv = styled.div`
     /* width: ${({ theme }) => theme.BannerImageDiv.widthMobile}; */
@@ -51,19 +53,26 @@ const ImageDiv = styled.div`
     }
 `;
 
+const BannerTitleParagraph = styled(Paragraph)`
+    text-align: center;
+
+`;
+
 const LinkRead = styled(Link)`
     text-decoration:underline;
     font-size: 14px;
     text-align: center;
+    margin-top: 10px;
 `;
 
 
-const BannerCard = ({ image }) => {
+
+const BannerCard = ({ image, label, title }) => {
     return(
         <Wrapper>
             <ImageDiv bcgImg={image} />
-            <h3>Kategoria</h3>
-            <h3>Tytuł</h3>
+            <h3>{label}</h3>
+            <BannerTitleParagraph>{title}</BannerTitleParagraph>
             <LinkRead to="/">CZYTAJ WIĘCEJ</LinkRead>
         </Wrapper>
     )

@@ -1,10 +1,11 @@
-import CategoryPageLayout from '../layouts/ArticleContentPage';
 import React from 'react';
-import CategoryPage from '../layouts/ArticleContentPage';
+import CategoryPage from '../layouts/CategoryPage';
 
 const Nutrition = () => {
+
     return(
-        <CategoryPage> </CategoryPage>
+        
+        <CategoryPage category="Odżywianie"> </CategoryPage>
     )
 }
 
