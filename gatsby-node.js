@@ -30,9 +30,7 @@ exports.createPages = async ({ graphql, actions}) => {
     
     `);
 
-    result.data.allDatoCmsArticle.nodes.forEach( post => {
-
-        
+    result.data.allDatoCmsArticle.nodes.forEach( post => {       
 
         const slugifiedTitle = slugify(post.title, {lower: true});
         const slugifiedLabel = slugify(post.label, {lower: true});

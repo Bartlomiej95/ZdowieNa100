@@ -73,7 +73,7 @@ query MyQuery{
 
 `;
 
-const MainSection = ({ category }) => {
+const MainSection = ({ category, path }) => {
 
   const data = useStaticQuery(query)
   
@@ -89,9 +89,9 @@ const MainSection = ({ category }) => {
                   // sprawdzamy czy przekazaliśmy zmienną category - w przypadku braku przekazania tej zmiennej będzie oznaczać, że
                   // jesteśmy na stronie głównej, więc nie chcemy podziału na kategorie - chcemy wyświetlać wszystko
                   category ? ( filteredData.map(node => 
-                    <ArticleCard title={node.title} label={node.label} paragraph={node.paragraph} image={node.image.url} />
+                    <ArticleCard key={node.title} title={node.title} label={node.label} paragraph={node.paragraph} image={node.image.url} path={path}/>
                   )) : ( data.allDatoCmsArticle.nodes.map(node => 
-                    <ArticleCard title={node.title} label={node.label} paragraph={node.paragraph} image={node.image.url} />
+                    <ArticleCard key={node.title} title={node.title} label={node.label} paragraph={node.paragraph} image={node.image.url} />
                   ))
                 } 
             </ArticleWrapper>

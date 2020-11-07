@@ -6,14 +6,14 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../theme/theme';
 
 
-const CategoryPage = ({ category }) => {
+const CategoryPage = ({ category, path }) => {
    
     return(
         <>  
             <GlobalStyle />
             <ThemeProvider theme={theme}>
                 <Header />
-                <MainSection category={category}/>
+                <MainSection category={category} path={path}/>
      
             </ThemeProvider>
         </>

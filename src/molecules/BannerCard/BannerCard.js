@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import Paragraph from '../../components/Paragaph/Paragraph';
 
+const slugify = require('slugify');
+
+
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -66,16 +69,33 @@ const LinkRead = styled(Link)`
 `;
 
 
-
 const BannerCard = ({ image, label, title }) => {
+    
+    const slugifiedTitle = slugify(title, {lower: true});
+    const slugifiedLabel = slugify(label, {lower: true});
+    
+    const labelNameAfterGenerate = labelNameGenerate(slugifiedLabel);
+    
     return(
         <Wrapper>
             <ImageDiv bcgImg={image} />
             <h3>{label}</h3>
             <BannerTitleParagraph>{title}</BannerTitleParagraph>
-            <LinkRead to="/">CZYTAJ WIĘCEJ</LinkRead>
+            <LinkRead to={`${labelNameAfterGenerate}/${slugifiedTitle}`}>CZYTAJ WIĘCEJ</LinkRead>
         </Wrapper>
     )
+}
+
+const labelNameGenerate = (label) => {
+    if(label === "odzywianie"){
+      return "nutrition"
+    } else if( label === "ruch"){
+      return "exercise"
+    } else if( label === "nawyki"){
+      return "habits"
+    } else if( label === "zdrowy-duch"){
+      return "healthy-spirit"
+    }
 }
 
 export default BannerCard;

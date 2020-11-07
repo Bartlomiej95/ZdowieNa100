@@ -1,9 +1,9 @@
 import React from 'react';
 import CategoryPage from '../layouts/CategoryPage';
 
-const HealthySpirit = () => {
+const HealthySpirit = (props) => {
     return(
-        <CategoryPage category="Zdrowy duch"> </CategoryPage>
+        <CategoryPage category="Zdrowy duch" path={props.location.pathname}> </CategoryPage>
     )
 }
 

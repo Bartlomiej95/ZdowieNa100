@@ -1,9 +1,9 @@
 import React from 'react';
 import CategoryPage from '../layouts/CategoryPage';
 
-const Habits = () => {
+const Habits = (props) => {
     return(
-        <CategoryPage category="Nawyki"> </CategoryPage>
+        <CategoryPage category="Nawyki" path={props.location.pathname}> </CategoryPage>
     )
 }
 

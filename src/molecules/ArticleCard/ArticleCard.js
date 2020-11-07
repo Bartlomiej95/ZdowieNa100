@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import Paragraph from '../../components/Paragaph/Paragraph';
 import ReadButton from '../../components/Buttons/Buttons';
+
+const slugify = require('slugify');
 
 const Wrapper = styled.div`
     position: relative;
@@ -94,11 +97,20 @@ const TitleArticle = styled.h2`
     }
 `;
 
+const ArticleLink = styled(Link)`
+    text-decoration: none;
+`;
 
 
 
-const ArticleCard = ({ image, label, title, paragraph }) => {
 
+const ArticleCard = ({ image, label, title, paragraph, path }) => {
+
+    const slugifiedTitle = slugify(title, {lower: true});
+    const slugifiedLabel = slugify(label, {lower: true});
+    
+    const labelNameAfterGenerate = labelNameGenerate(slugifiedLabel);
+    
     return(
         <>
             <Wrapper>
@@ -111,14 +123,28 @@ const ArticleCard = ({ image, label, title, paragraph }) => {
                 <ContentWrapper>
                     <TitleArticle>{title}</TitleArticle>
                     <Paragraph>{paragraph}</Paragraph>
-                    <ReadButton><h2>Czytaj teraz</h2> </ReadButton>
+                    {
+                        path === "/" || !path ? (<ArticleLink to={`${labelNameAfterGenerate}/${slugifiedTitle}`}><ReadButton><h2>Czytaj teraz</h2></ReadButton></ArticleLink> ) 
+                        : ( <ArticleLink to={`${slugifiedTitle}`}><ReadButton><h2>Czytaj teraz</h2></ReadButton></ArticleLink>  )
+                    }
+                    
                 </ContentWrapper>
-               
-
             </Wrapper>
         </>
 
     )
+}
+
+const labelNameGenerate = (label) => {
+    if(label === "odzywianie"){
+      return "nutrition"
+    } else if( label === "ruch"){
+      return "exercise"
+    } else if( label === "nawyki"){
+      return "habits"
+    } else if( label === "zdrowy-duch"){
+      return "healthy-spirit"
+    }
 }
 
 export default ArticleCard;
