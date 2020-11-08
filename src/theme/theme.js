@@ -24,6 +24,25 @@ export const theme = {
             tablet: '24px',
         }
     },
+
+    ContentTitleHeading: {
+        fontSize: {
+            mobile: '22px',
+            tablet: '24px',
+            laptop: '28px',
+            desktop: '32px',
+        }
+    },
+
+    ContentSubHeading: {
+        fontSize: {
+            mobile: '20px',
+            tablet: '22px',
+            laptop: '24px',
+            desktop: '28px',
+        }
+    },
+
     BannerImageDiv: {
          widthMobile: '150px',
          heightMobile: '160px',
@@ -57,6 +76,15 @@ export const theme = {
             tablet: '12px',
             laptop: '27px',
             desktop: '32px',
+        }
+    },
+
+    ContentParagraph: {
+        fontSize: {
+            mobile: '16px',
+            tablet: '18px',
+            laptop: '24px',
+            desktop: '26px',
         }
     },
     

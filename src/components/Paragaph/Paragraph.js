@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Paragraph = styled.p`
+export const Paragraph = styled.p`
     font-size: ${({ theme }) => theme.Paragraph.fontSize.mobile};
     margin-top: 8px;
 
@@ -12,5 +12,32 @@ const Paragraph = styled.p`
     }
 `;
 
+export const FirstContentParagraph = styled.p`
+    font-size: ${({ theme }) => theme.ContentParagraph.fontSize.mobile};
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
 
-export default Paragraph;
+    @media(min-width: 768px){
+        font-size: ${({ theme }) => theme.ContentParagraph.fontSize.tablet};
+
+    }
+    @media(min-width: 1280px){
+        font-size: ${({ theme }) => theme.ContentParagraph.fontSize.laptop};
+        
+    }
+`;
+
+export const ContentParagraph = styled.p`
+    font-size: ${({ theme }) => theme.ContentParagraph.fontSize.mobile};
+    margin-bottom: 10px;
+
+    @media(min-width: 768px){
+        font-size: ${({ theme }) => theme.ContentParagraph.fontSize.tablet};
+
+    }
+    @media(min-width: 1280px){
+        font-size: ${({ theme }) => theme.ContentParagraph.fontSize.laptop};
+        
+    }
+`;

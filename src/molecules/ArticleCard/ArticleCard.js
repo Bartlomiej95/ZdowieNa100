@@ -1,17 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import Paragraph from '../../components/Paragaph/Paragraph';
 import ReadButton from '../../components/Buttons/Buttons';
+import { Paragraph } from '../../components/Paragaph/Paragraph';
 
 const slugify = require('slugify');
 
 const Wrapper = styled.div`
     position: relative;
     margin-bottom: 100px;
-    padding-left: 20px;
-    
-    /* width: 90vw; */
     
 
     @media(min-width: 1280px){

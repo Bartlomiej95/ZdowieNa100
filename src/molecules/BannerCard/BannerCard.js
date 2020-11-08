@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import Paragraph from '../../components/Paragaph/Paragraph';
+import { Paragraph } from '../../components/Paragaph/Paragraph';
 
 const slugify = require('slugify');
 

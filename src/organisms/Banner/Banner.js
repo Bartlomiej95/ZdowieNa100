@@ -40,7 +40,6 @@ query bannerArticle {
 const Banner = () => {
 
   const data = useStaticQuery(query);
-  console.log(data.allDatoCmsArticle.nodes)
   
   return(
         <BannerSectionWrapper>

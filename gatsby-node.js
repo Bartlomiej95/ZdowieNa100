@@ -10,6 +10,10 @@ exports.createPages = async ({ graphql, actions}) => {
           nodes {
             title
             label
+            paragraph
+            image {
+              url
+            }
             content {
               ... on DatoCmsContentImage {
                 image {

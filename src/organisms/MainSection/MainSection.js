@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from "gatsby";
 import ArticleCard from '../../molecules/ArticleCard/ArticleCard';
-import Paragraph from '../../components/Paragaph/Paragraph';
 import authorImg from '../../../static/assets/author.svg';
+import { Paragraph } from '../../components/Paragaph/Paragraph';
 import { SectionHeading } from '../../components/Heading/Heading';
 
 const MainSectionWrapper = styled.main`
   display: flex;
   flex-direction: column;
   margin: 100px auto 40px auto;
+  padding: 0 20px;
 
   @media(min-width: 1280px){
     flex-direction: row;
@@ -83,25 +84,25 @@ const MainSection = ({ category, path }) => {
     return(
         <>
             <MainSectionWrapper>
-            <ArticleWrapper>
-                <SectionHeading>Aktualności</SectionHeading>
-                {
-                  // sprawdzamy czy przekazaliśmy zmienną category - w przypadku braku przekazania tej zmiennej będzie oznaczać, że
-                  // jesteśmy na stronie głównej, więc nie chcemy podziału na kategorie - chcemy wyświetlać wszystko
-                  category ? ( filteredData.map(node => 
-                    <ArticleCard key={node.title} title={node.title} label={node.label} paragraph={node.paragraph} image={node.image.url} path={path}/>
-                  )) : ( data.allDatoCmsArticle.nodes.map(node => 
-                    <ArticleCard key={node.title} title={node.title} label={node.label} paragraph={node.paragraph} image={node.image.url} />
-                  ))
-                } 
-            </ArticleWrapper>
-            <SectionAside>
-                <AboutAuthor>
-                    <h2>O autorze</h2>
-                    <img src={authorImg} alt="author image" />
-                    <Paragraph className={"aboutAuthor"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Paragraph>
-                </AboutAuthor>
-            </SectionAside>
+              <ArticleWrapper>
+                  <SectionHeading>Aktualności</SectionHeading>
+                  {
+                    // sprawdzamy czy przekazaliśmy zmienną category - w przypadku braku przekazania tej zmiennej będzie oznaczać, że
+                    // jesteśmy na stronie głównej, więc nie chcemy podziału na kategorie - chcemy wyświetlać wszystko
+                    category ? ( filteredData.map(node => 
+                      <ArticleCard key={node.title} title={node.title} label={node.label} paragraph={node.paragraph} image={node.image.url} path={path}/>
+                    )) : ( data.allDatoCmsArticle.nodes.map(node => 
+                      <ArticleCard key={node.title} title={node.title} label={node.label} paragraph={node.paragraph} image={node.image.url} />
+                    ))
+                  } 
+              </ArticleWrapper>
+              <SectionAside>
+                  <AboutAuthor>
+                      <h2>O autorze</h2>
+                      <img src={authorImg} alt="author image" />
+                      <Paragraph className={"aboutAuthor"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Paragraph>
+                  </AboutAuthor>
+              </SectionAside>
             </MainSectionWrapper>
         </>
     )
