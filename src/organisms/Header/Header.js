@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 import Navbar from '../../molecules/Navbar/Navbar';
 import menuIcon from '../../../static/assets/menuIcon.svg';
 import { MainHeading, MainSubHeading } from '../../components/Heading/Heading';
@@ -12,6 +12,12 @@ const HeadSectionWrapper = styled.div`
 
   img {
     flex: 2;
+
+    ${({hiddenMenu}) => 
+      hiddenMenu && css`
+        display: none;
+      `
+    }
 
     @media(min-width: 768px) {
       display: none;
@@ -28,16 +34,25 @@ const HeadSectionWrapper = styled.div`
   }
 `;
 
+
+
 const Header = () => {
+
+  const [hiddenMenu, setHiddenMenu] = useState(false);
+
     return(
+      <>
         <HeadSectionWrapper>
-          <img src={menuIcon} alt="menu icon"></img>
+          <img src={menuIcon} alt="menu icon" onClick={() => setHiddenMenu(!hiddenMenu)}></img>
+          
           <div> 
             <MainHeading>ZdrowieNa100%</MainHeading>
             <MainSubHeading className={'inTheOtherPlace'}>Blog poświęcony zdrowemu stylowi życia</MainSubHeading>
           </div>
-          <Navbar />
+          <Navbar statusMenu={hiddenMenu}/>
         </HeadSectionWrapper>
+        
+      </>
     )
 }
 

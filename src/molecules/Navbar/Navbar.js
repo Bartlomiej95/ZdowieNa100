@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css }from 'styled-components';
 import { Link } from 'gatsby';
+import arrowMenu from '../../../static/assets/arrow.svg';
 
 const NavbarWrapper = styled.nav`
     display: none;
@@ -43,9 +44,9 @@ const NavbarWrapper = styled.nav`
             }
         }
     }
-
- 
 `;
+
+
 
 const NavLink = styled(Link)`
     display: block;
@@ -74,20 +75,56 @@ const NavLink = styled(Link)`
             margin-right: 50px;
         }
     }
-
-
 `;
 
-const Navbar = () => {
+
+const HiddenNavbar = styled.nav`
+    
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #4A34D9;
+
+
+    ${({ statusMenu }) => 
+        statusMenu && css`
+            display: block;
+            position: fixed;
+            width: 100vw;
+                 
+            Link {
+                display: block;
+            }     
+
+        `
+    };
+
+    @media(min-width: 768px){
+        display: none;
+    }
+`;
+
+
+const Navbar = ({ statusMenu }) => {
 
     return(
-        <NavbarWrapper>
-            <NavLink to="/">Strona Główna</NavLink>
-            <NavLink to="/nutrition">Odżywianie</NavLink>
-            <NavLink to="/habits">Nawyki</NavLink>
-            <NavLink to="/exercise">Ruch</NavLink>
-            <NavLink to="/healthy-spirit">Zdrowy duch</NavLink>
-        </NavbarWrapper>
+        <>
+            <NavbarWrapper>
+                <NavLink to="/">Strona Główna</NavLink>
+                <NavLink to="/nutrition">Odżywianie</NavLink>
+                <NavLink to="/habits">Nawyki</NavLink>
+                <NavLink to="/exercise">Ruch</NavLink>
+                <NavLink to="/healthy-spirit">Zdrowy duch</NavLink>
+            </NavbarWrapper>
+            <HiddenNavbar statusMenu={statusMenu}>         
+                <NavLink to="/">Strona Główna</NavLink>
+                <NavLink to="/nutrition">Odżywianie</NavLink>
+                <NavLink to="/habits">Nawyki</NavLink>
+                <NavLink to="/exercise">Ruch</NavLink>
+                <NavLink to="/healthy-spirit">Zdrowy duch</NavLink>
+            </HiddenNavbar>
+        </>
     )
 }
 
